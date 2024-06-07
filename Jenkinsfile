@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials')
-        KUBECONFIG_CREDENTIALS = credentials('kubeconfig')
+        // KUBECONFIG_CREDENTIALS = credentials('kubeconfig')
         AWS_CREDENTIALS = credentials('aws-credentials')
     }
 
@@ -42,15 +42,15 @@ pipeline {
             }
         }
 
-        stage('Deploy to Kubernetes') {
-            steps {
-                withKubeConfig(credentialsId: 'kubeconfig') {
-                    sh '''
-                    kubectl apply -f k8s
-                    '''
-                }
-            }
-        }
+        // stage('Deploy to Kubernetes') {
+        //     steps {
+        //         withKubeConfig(credentialsId: 'kubeconfig') {
+        //             sh '''
+        //             kubectl apply -f k8s
+        //             '''
+        //         }
+        //     }
+        // }
     }
 
     post {
