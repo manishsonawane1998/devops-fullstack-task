@@ -10,14 +10,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your-repo/sample-app.git'
+                git 'https://github.com/manishsonawane1998/devops-fullstack-task.git'
             }
         }
 
         stage('Build Backend Docker Image') {
             steps {
                 script {
-                    docker.build('your-dockerhub-username/backend:latest', '-f backend/Dockerfile .').push()
+                    docker.build('manishsonawane1998/backend:latest', '-f backend/Dockerfile .').push()
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
         stage('Build Frontend Docker Image') {
             steps {
                 script {
-                    docker.build('your-dockerhub-username/frontend:latest', '-f frontend/Dockerfile .').push()
+                    docker.build('manishsonawane1998/frontend:latest', '-f frontend/Dockerfile .').push()
                 }
             }
         }
